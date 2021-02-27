@@ -1,0 +1,71 @@
+{% extends 'base.html.twig'%}
+{% block title %}{{parent()}}{% endblock %}
+
+{% block body %}
+{% for message in app.flashes('exito') %}
+    <div class="alert alert-success">
+        {{message}}
+    </div>
+{% endfor %}
+
+<table>
+    <table>
+        <tr>
+            <td colspan="2"><div class="imagen3"><h1>Agenda</h1></div></td>
+            <td><form class="imagen1" action="añadir.php" method="get">
+        <a href="nuevo">Agregar</a>
+            <a href="/">Volver</a>
+    </form></td>
+        </tr>
+    <tr>
+    <td>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12 mt-2">
+                <h2 class="text-center">Crear nuevo contacto <i class="fa fa-plus"></i></h2>
+            </div>
+            {{ form_start(formulario) }}
+        <div class="my-custom-class-for-errors">
+            {{ form_errors(formulario) }}
+        </div>
+
+        <div class="row">
+            <div class="col">
+                {{ form_row(formulario.Nombre) }}
+            </div>
+            <div class="col" id="some-custom-id">
+                {{ form_row(formulario.Apellidos) }}
+            </div>
+            <div class="col" id="some-custom-id">
+                {{ form_row(formulario.Telefono) }}
+            </div>
+            <div class="col" id="some-custom-id">
+                {{ form_row(formulario.Direccion) }}
+            </div>
+            <div class="col" id="some-custom-id">
+                {{ form_row(formulario.Piso) }}
+            </div>
+            <div class="col" id="some-custom-id">
+                {{ form_row(formulario.Email) }}
+            </div>
+            <div class="col" id="some-custom-id">
+                {{ form_row(formulario.Tipo) }}
+            </div>
+        </div>
+    </div>
+{{ form_end(formulario) }}
+</td>
+    </tr>
+    <tr>
+            <td colspan="3"><div id="pie">
+        <h3>Redes Sociales</h3>
+        <div class="subpie">
+            <img src="../img/twitter.png" width="5%"/>
+            <img src="../img/youtube.png" width="5%"/>
+            <img src="../img/facebook.png" width="5%"/>
+        </div></td>
+        </tr>
+    </table>
+
+
+{% endblock %}

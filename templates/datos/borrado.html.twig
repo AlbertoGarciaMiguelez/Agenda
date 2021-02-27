@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{parent()}}{% endblock %}
+
+{% block body %}
+{{parent()}}
+<table>
+        <tr>
+            <td colspan="4"><div class="imagen3"><h1>Contacto Borrado</h1></div></td>
+            <td><form class="imagen1" action="añadir.php" method="get">
+        <a href="nuevo">Agregar</a>
+            <a href="/">Volver</a>
+    </form></td>
+    </table>
+{% endblock %}

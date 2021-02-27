@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{parent()}}{% endblock %}
+
+{% block body %}
+{{parent()}}
+<table>
+        <tr>
+            <td colspan="6"><div class="imagen3"><h1>Agenda</h1></div></td>
+            <td><form class="imagen1" action="añadir.php" method="get">
+        <a href="nuevo">Agregar</a>
+            <a href="/">Volver</a>
+    </form></td>
+        </tr>
+        <tr>
+            <th>Nombre</th>
+            <th>Apellidos</th>
+            <th>Telefono</th>
+            <th>Tipo</th>
+        </tr>
+        {# table body #}
+    {% for article in pagination %}
+        <tr {% if loop.index is odd %}class="color"{% endif %}>
+            <td>{{ article.Nombre}}</td>
+            <td>{{ article.Apellidos }}</td>
+             <td>{{ article.Telefono }}</td>
+             <td>{{ article.Tipo }}</td>
+             <td><a href="{{ path('verdatos',{'id':article.id}) }}">Ver</a></td>
+             <td><a href="{{ path('editar',{'id':article.id}) }}">Editar</a></td>
+             <td><a href="{{ path('delete',{'id':article.id}) }}">Borrar</a></td>
+        </tr>
+    {% endfor %}
+    {# display navigation #}
+    <tr>
+            <td><div class="navigation">
+            {{ knp_pagination_render(pagination) }}
+                </div></td>
+        </tr>
+        <tr>
+            <td colspan="7"><div id="pie">
+        <h3>Redes Sociales</h3>
+        <div class="subpie">
+            <img src="../img/twitter.png" width="5%"/>
+            <img src="../img/youtube.png" width="5%"/>
+            <img src="../img/facebook.png" width="5%"/>
+        </div></td>
+        </tr>
+    </table>
+{% endblock %}
